@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="rock">rock</button>
+    <button id="paper">paper</button>
+    <button id="scissor">scissor</button>
+    <h1 id="label"></h1>
+    <h1 id="label2"></h1>
+    <h1 id="result"></h1>
+    <h1>player's score</h1>
+    <h1 id="playerscore">0</h1>
+    <h1>computer's score</h1>
+    <h1 id="computerscore">0</h1>
+    <h1>draw matches</h1>
+    <h1 id="draw">0</h1>
+
+
+
+
+    <script>
+
+        let rock = document.getElementById("rock")
+        let paper = document.getElementById("paper")
+        let scissor = document.getElementById("scissor")
+        let label = document.getElementById("label")
+        let label2 = document.getElementById("label2")
+        let result = document.getElementById("result")
+        let playerScore = document.getElementById("playerscore")
+        let computerScore = document.getElementById("computerscore")
+        let draw=document.getElementById("draw")
+        // console.log(computerScore);
+
+        toss = ["rock", "paper", "scissor"]
+        player = 0
+        computer = 0
+        drawmatches=0
+
+
+
+        rock.addEventListener("click", () => {
+            let playerSelection = rock.innerHTML
+            let random = Math.floor(Math.random() * toss.length)
+            let computerSelection = toss[random]
+            label.innerHTML = "player selected  :" + playerSelection
+            label2.innerHTML = "computer selected :" + computerSelection
+            console.log(random, computerSelection, playerSelection);
+
+            if (playerSelection == "rock") {
+                if (computerSelection == "rock") {
+                    result.innerHTML = "match is draw"
+                    drawmatches++
+                    draw.innerHTML=drawmatches
+                }
+                else if (computerSelection == "paper") {
+                    result.innerHTML = "computer is winner"
+                    computer++
+                    computerScore.innerHTML = computer
+                }
+                else {
+                    result.innerHTML = "player is winner"
+                    player++
+                    playerScore.innerHTML = player
+                }
+
+            }
+        })
+
+        paper.addEventListener("click", () => {
+            let playerSelection = paper.innerHTML
+            let random = Math.floor(Math.random() * toss.length)
+            let computerSelection = toss[random]
+            label.innerHTML = "player selected  :" + playerSelection
+            label2.innerHTML = "computer selected :" + computerSelection
+
+            console.log(computerSelection, playerSelection);
+
+            if (playerSelection == "paper") {
+                if (computerSelection == "rock") {
+                    result.innerHTML = "player is winner"
+                    player++
+                    playerScore.innerHTML = player
+                }
+                else if (computerSelection == "paper") {
+                    result.innerHTML = "match is draw"
+                    drawmatches++
+                    draw.innerHTML=drawmatches
+                }
+                else {
+                    result.innerHTML = "computer is winner"
+                    computer++
+                    computerScore.innerHTML = computer
+
+
+                }
+            }
+
+        })
+
+        scissor.addEventListener("click", () => {
+            playerSelection = scissor.innerHTML
+            let random = Math.floor(Math.random() * toss.length)
+            computerSelection = toss[random]
+            label.innerHTML = "player selected  :" + playerSelection
+            label2.innerHTML = "computer selected :" + computerSelection
+
+            console.log(computerSelection, playerSelection);
+
+            if(playerSelection=="scissor"){
+                if(computerSelection=="scissor"){
+                    result.innerHTML="match is draw"
+                    result.innerHTML = "match is draw"
+                    drawmatches++
+                    draw.innerHTML=drawmatches
+
+                }
+                else if(computerSelection=="paper"){
+                    result.innerHTML="player is winner"
+                    player++
+                    playerScore.innerHTML=player
+                }
+                else{
+                    result.innerHTML="computer is winner"
+                    computer++
+                    computerScore.innerHTML=computer
+                }
+            }
+        })
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
